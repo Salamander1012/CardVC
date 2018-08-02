@@ -19,6 +19,9 @@ protocol CardViewController {
     var panGestureRecognizer: UIPanGestureRecognizer? { get set }
     var springAnimationTime: TimeInterval { get set }
     var delegate: CardVCDelegate? { get set }
+    var dimView: UIView { get set
+        
+    }
     func setUpCardView()
 }
 
@@ -34,6 +37,7 @@ enum CardState {
 }
 
 class CardVC: UIViewController, CardViewController {
+    var dimView: UIView
     
     var delegate: CardVCDelegate?
     
@@ -45,7 +49,11 @@ class CardVC: UIViewController, CardViewController {
     
     var rootVC: UIViewController
     
-    var topConstraint: NSLayoutConstraint?
+    var topConstraint: NSLayoutConstraint? {
+        didSet {
+            print("changed")
+        }
+    }
     
     var height: CGFloat
     
@@ -63,6 +71,7 @@ class CardVC: UIViewController, CardViewController {
         self.bottomPosition = rootVC.view.frame.height * 0.9
         self.state = .middle
         self.springAnimationTime = 0.2
+        self.dimView = UIView()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -79,6 +88,11 @@ class CardVC: UIViewController, CardViewController {
     }
     
     func setUpCardView() {
+        rootVC.view.addSubview(dimView)
+        dimView.frame = rootVC.view.frame
+        dimView.backgroundColor = .black
+        dimView.alpha = 0
+        
         rootVC.addChildViewController(self)
         rootVC.view.addSubview(view)
         let rootView = rootVC.view
@@ -106,8 +120,17 @@ extension CardVC {
             if let currentTopConstant = topConstraint?.constant {
                 if translation.y < 0 {
                     topConstraint?.constant = currentTopConstant>(topPosition) ? currentTopConstant + translation.y : currentTopConstant
+                    let alpha = (topConstraint?.constant)!>=midPosition ? 0 : (bottomPosition - (topConstraint?.constant)!)/(bottomPosition*2)
+//                    print((topConstraint?.constant)!)
+//                    print(bottomPosition)
+//                    print("---")
+                    dimView.alpha = alpha
                 } else {
                     topConstraint?.constant = (currentTopConstant<bottomPosition) ? currentTopConstant + translation.y : currentTopConstant
+                    let alpha = (topConstraint?.constant)!>=midPosition ? 0 : (bottomPosition - (topConstraint?.constant)!)/(bottomPosition*2)
+//                    print((topConstraint?.constant)!)
+//                    print(bottomPosition)
+                    dimView.alpha = alpha
                 }
             }
         }
