@@ -18,9 +18,14 @@ protocol CardViewController {
     var state: CardState { get set }
     var panGestureRecognizer: UIPanGestureRecognizer? { get set }
     var springAnimationTime: TimeInterval { get set }
-    
+    var delegate: CardVCDelegate? { get set }
     func setUpCardView()
 }
+
+protocol CardVCDelegate {
+    func cardViewDidLoad(cardView: UIView)
+}
+
 
 enum CardState {
     case top
@@ -29,6 +34,9 @@ enum CardState {
 }
 
 class CardVC: UIViewController, CardViewController {
+    
+    var delegate: CardVCDelegate?
+    
     var springAnimationTime: TimeInterval
     
     var panGestureRecognizer: UIPanGestureRecognizer?
@@ -67,6 +75,7 @@ class CardVC: UIViewController, CardViewController {
         super.viewDidLoad()
         setUpCardView()
         setUpGestureRecognizers()
+        delegate?.cardViewDidLoad(cardView: view)
     }
     
     func setUpCardView() {
@@ -131,7 +140,7 @@ extension CardVC {
             }
         }
     }
-//
+    
     func moveViewTop(toPostion position: CGFloat) {
         
         UIView.animate(withDuration: self.springAnimationTime ?? 0.2, delay: 0, options: .curveEaseOut, animations: {
