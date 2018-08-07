@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		74EE9D14211235F300700928 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE9D13211235F300700928 /* AppDelegate.swift */; };
-		74EE9D16211235F300700928 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE9D15211235F300700928 /* MainViewController.swift */; };
 		74EE9D1B211235F500700928 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74EE9D1A211235F500700928 /* Assets.xcassets */; };
 		74EE9D1E211235F500700928 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74EE9D1C211235F500700928 /* LaunchScreen.storyboard */; };
-		74EE9D262112367D00700928 /* CardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE9D252112367D00700928 /* CardVC.swift */; };
-		74EE9D2821124A2700700928 /* TestCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE9D2721124A2700700928 /* TestCardVC.swift */; };
+		74EE9D2B2118C47600700928 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE9D2A2118C47600700928 /* ViewController.swift */; };
+		74EE9D2D2118C4AA00700928 /* DraggablePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE9D2C2118C4AA00700928 /* DraggablePresentationController.swift */; };
+		74EE9D2F2118C4DC00700928 /* DraggableTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE9D2E2118C4DC00700928 /* DraggableTransitionAnimator.swift */; };
+		74EE9D312118E52600700928 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE9D302118E52600700928 /* CardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		74EE9D10211235F300700928 /* CardVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EE9D13211235F300700928 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		74EE9D15211235F300700928 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		74EE9D1A211235F500700928 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74EE9D1D211235F500700928 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74EE9D1F211235F500700928 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		74EE9D252112367D00700928 /* CardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVC.swift; sourceTree = "<group>"; };
-		74EE9D2721124A2700700928 /* TestCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardVC.swift; sourceTree = "<group>"; };
+		74EE9D2A2118C47600700928 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		74EE9D2C2118C4AA00700928 /* DraggablePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggablePresentationController.swift; sourceTree = "<group>"; };
+		74EE9D2E2118C4DC00700928 /* DraggableTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableTransitionAnimator.swift; sourceTree = "<group>"; };
+		74EE9D302118E52600700928 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,24 @@
 		74EE9D12211235F300700928 /* CardVC */ = {
 			isa = PBXGroup;
 			children = (
+				74EE9D292118C46100700928 /* Custom Presentation */,
 				74EE9D13211235F300700928 /* AppDelegate.swift */,
-				74EE9D15211235F300700928 /* MainViewController.swift */,
 				74EE9D1A211235F500700928 /* Assets.xcassets */,
 				74EE9D1C211235F500700928 /* LaunchScreen.storyboard */,
 				74EE9D1F211235F500700928 /* Info.plist */,
-				74EE9D252112367D00700928 /* CardVC.swift */,
-				74EE9D2721124A2700700928 /* TestCardVC.swift */,
 			);
 			path = CardVC;
+			sourceTree = "<group>";
+		};
+		74EE9D292118C46100700928 /* Custom Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				74EE9D2A2118C47600700928 /* ViewController.swift */,
+				74EE9D2C2118C4AA00700928 /* DraggablePresentationController.swift */,
+				74EE9D2E2118C4DC00700928 /* DraggableTransitionAnimator.swift */,
+				74EE9D302118E52600700928 /* CardViewController.swift */,
+			);
+			path = "Custom Presentation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74EE9D262112367D00700928 /* CardVC.swift in Sources */,
-				74EE9D16211235F300700928 /* MainViewController.swift in Sources */,
-				74EE9D2821124A2700700928 /* TestCardVC.swift in Sources */,
+				74EE9D2B2118C47600700928 /* ViewController.swift in Sources */,
+				74EE9D2D2118C4AA00700928 /* DraggablePresentationController.swift in Sources */,
+				74EE9D312118E52600700928 /* CardViewController.swift in Sources */,
+				74EE9D2F2118C4DC00700928 /* DraggableTransitionAnimator.swift in Sources */,
 				74EE9D14211235F300700928 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
