@@ -14,6 +14,7 @@
 		74EE9D2D2118C4AA00700928 /* DraggablePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE9D2C2118C4AA00700928 /* DraggablePresentationController.swift */; };
 		74EE9D2F2118C4DC00700928 /* DraggableTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE9D2E2118C4DC00700928 /* DraggableTransitionAnimator.swift */; };
 		74EE9D312118E52600700928 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE9D302118E52600700928 /* CardViewController.swift */; };
+		74EE9D33211A1BF700700928 /* TouchForwardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE9D32211A1BF700700928 /* TouchForwardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		74EE9D2C2118C4AA00700928 /* DraggablePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggablePresentationController.swift; sourceTree = "<group>"; };
 		74EE9D2E2118C4DC00700928 /* DraggableTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableTransitionAnimator.swift; sourceTree = "<group>"; };
 		74EE9D302118E52600700928 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		74EE9D32211A1BF700700928 /* TouchForwardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchForwardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				74EE9D2C2118C4AA00700928 /* DraggablePresentationController.swift */,
 				74EE9D2E2118C4DC00700928 /* DraggableTransitionAnimator.swift */,
 				74EE9D302118E52600700928 /* CardViewController.swift */,
+				74EE9D32211A1BF700700928 /* TouchForwardingView.swift */,
 			);
 			path = "Custom Presentation";
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				74EE9D2B2118C47600700928 /* ViewController.swift in Sources */,
 				74EE9D2D2118C4AA00700928 /* DraggablePresentationController.swift in Sources */,
 				74EE9D312118E52600700928 /* CardViewController.swift in Sources */,
+				74EE9D33211A1BF700700928 /* TouchForwardingView.swift in Sources */,
 				74EE9D2F2118C4DC00700928 /* DraggableTransitionAnimator.swift in Sources */,
 				74EE9D14211235F300700928 /* AppDelegate.swift in Sources */,
 			);

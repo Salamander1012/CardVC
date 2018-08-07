@@ -70,6 +70,12 @@ enum DraggablePosition {
 
 class DraggablePresentationController: UIPresentationController {
     
+    
+    private lazy var touchForwardingView: TouchForwardingView? = {
+        guard let containerView = containerView else { return nil }
+        return TouchForwardingView(frame: containerView.bounds)
+    }()
+    
     private var dimmingView = UIView()
     
     private var position: DraggablePosition = .middle
@@ -90,6 +96,9 @@ class DraggablePresentationController: UIPresentationController {
     override func presentationTransitionWillBegin() {
         //insert dimming view
         guard let containerView = containerView else { return }
+        
+        touchForwardingView!.passthroughViews = [presentingViewController.view]
+        containerView.insertSubview(touchForwardingView!, at: 0)
         
         containerView.insertSubview(dimmingView, at: 1)
         dimmingView.alpha = 0
@@ -122,6 +131,13 @@ class DraggablePresentationController: UIPresentationController {
         
         if canDragInProposedDirection {
             presentedView?.frame.origin.y = newOffset
+            let nextOriginY = position.nextPostion(for: dragDirection).yOrigin(for: maxFrame.height)
+            let area = dragDirection == .up ? frameOfPresentedViewInContainerView.origin.y - maxFrame.origin.y : -(frameOfPresentedViewInContainerView.origin.y - nextOriginY)
+            if newOffset != area && position == .open || position.nextPostion(for: dragDirection) == .open {
+                let onePercent = area / 100
+                let percentage = (area-newOffset) / onePercent / 100
+                dimmingView.alpha = percentage * DraggablePosition.open.dimAlpha
+            }
         }
         
         if panRecognizer.state == .ended {

@@ -14,6 +14,7 @@ class CardViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .lightGray
-        
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
     }
 }
